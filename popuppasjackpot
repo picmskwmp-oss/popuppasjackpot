@@ -17,6 +17,11 @@
       let sliderTimer = null;
       let changingSlide = false;
 
+      let marqueeFrame = null;
+      let marqueeX = 0;
+      let marqueeLastTime = 0;
+      const MARQUEE_SPEED = 55;
+
       /* ==============================
          CEK HALAMAN
       ============================== */
@@ -377,26 +382,15 @@
 
           #crb-title-track {
             display: inline-block;
+            flex: 0 0 auto;
             white-space: nowrap;
-            padding-left: 100%;
             font-weight: 800;
             font-size: 12px;
             color: #fff;
             letter-spacing: .3px;
             line-height: 26px;
-            will-change: transform;
             transform: translate3d(0, 0, 0);
-            animation: crbMarquee 14s linear infinite;
-          }
-
-          @keyframes crbMarquee {
-            from {
-              transform: translate3d(0, 0, 0);
-            }
-
-            to {
-              transform: translate3d(-100%, 0, 0);
-            }
+            will-change: transform;
           }
 
           .crb-gif-row {
@@ -544,7 +538,6 @@
             #crb-title-track {
               font-size: 11px;
               line-height: 24px;
-              animation-duration: 12s;
             }
 
             .crb-gif-box {
@@ -644,7 +637,7 @@
             <div class="crb-marquee-icon">📢</div>
             <div class="crb-marquee-area">
               <div id="crb-title-track">
-                🇮🇩 DIRGAHAYU INDONESIA • SELAMAT HARI KEMERDEKAAN REPUBLIK INDONESIA • RAYAKAN KEMERDEKAAN BERSAMA PASJACKPOT • NIKMATI BERAGAM BONUS SETIAP HARI ✦
+                Selamat Datang di Pasjackpot, DIRGAHAYU INDONESIA bermain bersama kami dan claim Bonusnya
               </div>
             </div>
           </div>
@@ -716,6 +709,60 @@
 
         const dotsContainer =
           document.getElementById("crb-dots");
+
+        const marqueeArea =
+          document.querySelector(".crb-marquee-area");
+
+        const marqueeTrack =
+          document.getElementById("crb-title-track");
+
+        /* ==============================
+           RUNNING TEXT - JS RINGAN
+        ============================== */
+
+        function startMarquee() {
+          if (!marqueeArea || !marqueeTrack) return;
+
+          if (marqueeFrame !== null) {
+            cancelAnimationFrame(marqueeFrame);
+          }
+
+          marqueeX = marqueeArea.clientWidth;
+          marqueeLastTime = performance.now();
+
+          marqueeTrack.style.transform =
+            "translate3d(" + marqueeX + "px,0,0)";
+
+          function runMarquee(now) {
+            const delta = Math.min(
+              (now - marqueeLastTime) / 1000,
+              0.05
+            );
+
+            marqueeLastTime = now;
+            marqueeX -= MARQUEE_SPEED * delta;
+
+            if (marqueeX <= -marqueeTrack.offsetWidth) {
+              marqueeX = marqueeArea.clientWidth;
+            }
+
+            marqueeTrack.style.transform =
+              "translate3d(" + marqueeX + "px,0,0)";
+
+            marqueeFrame =
+              requestAnimationFrame(runMarquee);
+          }
+
+          marqueeFrame =
+            requestAnimationFrame(runMarquee);
+        }
+
+        function stopMarquee() {
+          if (marqueeFrame !== null) {
+            cancelAnimationFrame(marqueeFrame);
+            marqueeFrame = null;
+          }
+        }
 
         /* ==============================
            DOT SLIDER
@@ -882,6 +929,7 @@
 
         function closePopup() {
           clearInterval(sliderTimer);
+          stopMarquee();
 
           popup.classList.add("pull-up");
           overlay.classList.add("fade-out");
@@ -926,6 +974,10 @@
 
         renderDots();
         startSliderTimer();
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(startMarquee);
+        });
       }
 
       /* ==============================
