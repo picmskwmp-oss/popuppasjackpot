@@ -353,8 +353,22 @@
             align-items: center;
             overflow: hidden;
             box-sizing: border-box;
-            background: rgba(8, 15, 34, .92);
-            border: 2px solid #ff2b2b;
+
+            /* GOLD PREMIUM - disamakan dengan tombol */
+            background:
+              linear-gradient(
+                180deg,
+                #d4af37 0%,
+                #a56b00 30%,
+                #4a3200 70%,
+                #111 100%
+              );
+            border: 1px solid #f6d365;
+            border-radius: 8px;
+            box-shadow:
+              0 0 10px rgba(212, 175, 55, .65),
+              0 0 22px rgba(212, 175, 55, .30),
+              inset 0 1px 0 rgba(255, 255, 255, .18);
           }
 
           .crb-marquee-icon {
@@ -368,8 +382,15 @@
             z-index: 2;
             font-size: 13px;
             color: #fff;
-            background: rgba(20, 30, 60, .96);
-            border-right: 1px solid rgba(255, 255, 255, .18);
+            background:
+              linear-gradient(
+                180deg,
+                #d4af37 0%,
+                #8c5a00 48%,
+                #2d1d00 100%
+              );
+            border-right: 1px solid #f6d365;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .7);
           }
 
           .crb-marquee-area {
@@ -389,6 +410,7 @@
             color: #fff;
             letter-spacing: .3px;
             line-height: 26px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .85);
             transform: translate3d(0, 0, 0);
             will-change: transform;
           }
