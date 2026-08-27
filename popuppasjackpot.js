@@ -675,8 +675,8 @@
 
             <div class="crb-gif-box">
               <img
-                src="https://www.image2url.com/r2/default/gifs/1784829809669-8e602d39-2842-4aa9-97c3-48381ca2780f.gif"
-                alt="Dirgahayu Indonesia"
+                src="https://imgcdn.it.com/hb8fdn9z3sk9b845yd0f/external-source/ms/mahjong-1.webp"
+                alt="Mahjong Ways"
               >
             </div>
 
