@@ -3,7 +3,6 @@
     (function () {
       const IMG = [
         "https://www.image2url.com/r2/default/files/1787833813616-15cef6ac-ea36-4f3d-a53b-3fa87bf28fc2.jpg",
-        "https://www.image2url.com/r2/default/files/1785794608931-a870bc06-64b7-47ac-9a24-04e7aafc2d27.jpg",
       ];
 
       const DELAY_KEY = "popup_delay_1h";
