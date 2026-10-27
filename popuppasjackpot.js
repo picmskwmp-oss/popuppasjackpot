@@ -658,7 +658,7 @@
             <div class="crb-marquee-icon">📢</div>
             <div class="crb-marquee-area">
               <div id="crb-title-track">
-                Selamat Datang di Pasjackpot, DIRGAHAYU INDONESIA bermain bersama kami dan claim Bonusnya
+                🎉 SELAMAT DATANG DI PASJACKPOT 🎉 Nikmati Keseruan Bermain Bersama Kami dan Jangan Lewatkan Beragam Bonus Menarik! 💎 Segera Klaim Bonus Favorit Anda dan Cek Promo Spesial yang Tersedia Hari Ini! 🍀 PASJACKPOT, Pilihan Seru untuk Menemani Waktu Anda! ✨
               </div>
             </div>
           </div>
